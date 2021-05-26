@@ -12,7 +12,8 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     user.save
     post login_path, params: {session:{email: 'juan@email.com', password: 'password'}}
 
-    assert_response :redirect                                                                                                                                                                                     
+    assert_response :redirect              
+                                                                                                                                                                    
   end
 
 

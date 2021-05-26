@@ -1,45 +1,54 @@
 require "test_helper"
 
 class UserTest < ActiveSupport::TestCase
+  def setup
+    @user = User.new(firstname: 'Juan', lastname: 'Cruz', username: 'juan.cruz', email: 'juan@email.com', password: 'password')
+  end
+
+  test 'valid user' do
+    assert @user.valid?
+  end
+
   test 'should not save User without firstname' do
-    user = User.new(lastname: 'Cruz', username: 'juan.cruz', email: 'juan@email.com', password: 'password')
-    assert_not user.save, 'Save the user without firstname'
+    @user.firstname = nil
+    assert_not @user.valid?, 'Save the user without firstname'
   end
 
   test 'should not save User without lastname' do
-    user = User.new(firstname: 'Juan', username: 'juan.cruz', email: 'juan@email.com', password: 'password')
-    assert_not user.save, 'Save the user without lastname'
+    @user.lastname = nil
+    assert_not @user.save, 'Save the user without lastname'
   end
 
   test 'should not save User without email' do
-    user = User.new(firstname: 'Juan', lastname: 'Cruz', username: 'juan.cruz', password: 'password')
-    assert_not user.save, 'Save the user without email'
+    @user.email = nil
+    assert_not @user.save, 'Save the user without email'
   end
 
   test 'should not save User without password' do
-    user = User.new(firstname: 'Juan', lastname: 'Cruz', username: 'juan.cruz', email: 'juan@email.com')
-    assert_not user.save, 'Save the user without password'
+    @user.password = nil
+    assert_not @user.save, 'Save the user without password'
   end
 
   test 'should not save if email is invalid' do
-    user = User.new(firstname: 'Juan', lastname: 'Cruz', username: 'juan.cruz', email: 'juanemail.com', password: 'password')
-    assert_not user.save, 'Save the user with invalid email address'
+    @user.email = 'juanemail.com'
+    assert_not @user.save, 'Save the user with invalid email address'
   end
 
   test 'should not save if username already exist' do
-    user = User.new(firstname: 'Juan', lastname: 'Cruz', username: 'juan.cruz', email: 'juan@email.com', password: 'password')
-    user.save
-    user2 = User.new(firstname: 'Juan', lastname: 'Cruz', username: 'juan.cruz', email: 'juan2@email.com', password: 'password')
+    @user.save
 
-    assert_not user2.save, 'Save the user with existing username'
+    @user2 = @user.dup
+    byebug
+    @user2.email = 'juan1@email.com' 
+    byebug
+    assert_not @user2.save, 'Save the user with existing username'
   end
 
   test 'should not save if email already exist' do
-    user = User.new(firstname: 'Juan', lastname: 'Cruz', username: 'juan.cruz', email: 'juan@email.com', password: 'password')
-    user.save
-    user2 = User.new(firstname: 'Juan', lastname: 'Cruz', username: 'juan2.cruz', email: 'juan@email.com', password: 'password')
-
-    assert_not user2.save, 'Save the user with existing email'
+    @user.save
+    @user2 = @user.dup
+    @user2.username = 'juan1.cruz' 
+    assert_not @user2.save, 'Save the user with existing username'
   end
 
 
