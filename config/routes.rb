@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   root 'pages#home'
   get 'signup', to: 'users#new'
   resources :users, except: [:new]
-  resources :categories, except: [:index]
+  resources :categories, except: [:index, :update]
+  patch '/categories/:id', to: 'categories#update', as: 'category_update'
   get 'dashboard', to: 'categories#index' 
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'

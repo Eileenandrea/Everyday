@@ -1,1 +1,6 @@
 <h1>Welcom back <%= "#{current_user.firstname}"  %></h1>
+
+<%@categories.each do |category|%>
+    <p>Name: <%=category.name%></p>
+    <p>Description: <%=category.description%></p>
+    <%end%>

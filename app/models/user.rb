@@ -1,7 +1,7 @@
 class User < ApplicationRecord
     before_save { self.email = email.downcase }
     has_secure_password
-    has_many :articles
+    has_many :categories
     validates :firstname, presence:true,
                 length: {minimum: 2, maximum: 26}
     validates :lastname, presence:true,
