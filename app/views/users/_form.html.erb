@@ -1,0 +1,22 @@
+<%=render 'shared/errors', obj: @user%>
+<div class="container">
+    <%= form_with(model: @user, local: true) do |f|%>
+        <%= f.label :firstname, :class=>"form-label"%>
+        <%= f.text_field :firstname, placeholder: "firstname" , :class=>"form-control"%>
+        </br>
+        <%= f.label :lastname, :class=>"form-label"%>
+        <%= f.text_field :lastname, placeholder: "lastname" , :class=>"form-control"%>
+        </br>
+        <%= f.label :username, :class=>"form-label"%>
+        <%= f.text_field :username, placeholder: "username" , :class=>"form-control"%>    
+        </br>
+        <%= f.label :email, :class=>"form-label"%>
+        <%= f.email_field :email, placeholder: "email" , :class=>"form-control"%>
+        </br>
+        <%= f.label :password, :class=>"form-label"%>
+        <%= f.password_field :password, placeholder: "password" , :class=>"form-control"%>
+        </br>
+        <%= f.submit(@user.new_record? ? 'sign up' : 'Update Account', :class=>"btn btn-post")%>
+
+    <%end%>
+</div>
