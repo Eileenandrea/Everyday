@@ -1,8 +1,9 @@
 class TasksController < ApplicationController
+    before_action :set_task, only: [:show,:edit,:update,:destroy]
+    before_action :check_id, only: [:show,:edit,:update,:destroy]
     before_action :get_category
     before_action :require_user
     before_action :require_same_user, only: [:show, :edit, :update, :destroy, :index, :new] 
-    before_action :set_task, only: [:show,:edit,:update,:destroy]
 
     def index
         @tasks = @category.tasks
@@ -23,8 +24,23 @@ class TasksController < ApplicationController
         end
     end
     def show
-        byebug
     end
+    def edit
+    end
+    def update
+        if @task.update(task_params)
+            flash[:notice] = 'Task was updated successfully.'
+            redirect_to category_task_path(id:@task)
+        else
+            render 'edit'
+        end
+    end
+    def destroy
+        @task.destroy
+        redirect_to category_tasks_path(Category.last)
+    end
+
+
     private
     
     def get_category
@@ -35,5 +51,11 @@ class TasksController < ApplicationController
     end
     def task_params
         params.require(:task).permit(:name,:description,:category_id,:user_id,:due_date)
+    end
+    def check_id
+        if params[:category_id].to_i != @task.category_id
+            flash[:alert] = "Invalid URL"
+            redirect_to dashboard_path
+        end
     end
 end
