@@ -90,7 +90,7 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
   test "should update Category and redirect to category show" do
     login_setup
     create_category
-    patch category_update_path(Category.last), params: { category: { name: 'Household', description: 'Household chores version 2'}}
+    patch category_path(Category.last), params: { category: { name: 'Household', description: 'Household chores version 2'}}
     
     assert_equal('Household chores version 2', Category.last.description)
     assert_response :redirect

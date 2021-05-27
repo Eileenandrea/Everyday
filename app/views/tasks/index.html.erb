@@ -1,0 +1,7 @@
+<h1><%=@category.name%> Task list</h1>
+
+<% @tasks.each do |task| %>
+    <p><%=task.name%></p>
+    <p><%=task.description%></p>
+    <p><%=task.due_date%></p>
+<%end%>

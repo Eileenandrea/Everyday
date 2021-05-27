@@ -1,0 +1,12 @@
+<%=form_with(model:@task, url:category_tasks_path, local:true) do |f|%>
+    <%=f.label :name%>
+    <%=f.text_field :name, placeholder: "Task Name"%>
+    </br>
+    <%=f.label :description%>
+    <%=f.text_area :description, placeholder: "Task  Description"%>
+    </br>
+    <%=f.label :'Due Date'%>
+    <%=f.datetime_field :due_date%>
+    </br>
+    <%=f.submit "Create Task" %>
+<%end%>
