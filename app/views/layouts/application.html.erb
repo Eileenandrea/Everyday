@@ -8,9 +8,14 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/777922a76d.js" crossorigin="anonymous"></script>
+    
+
+    </head>
 
   <body>
-    <%= yield %>
+  <%=render 'layouts/header'%>
+  <%= yield %>
   </body>
 </html>
