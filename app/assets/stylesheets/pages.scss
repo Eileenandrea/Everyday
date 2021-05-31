@@ -1,3 +1,23 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.header{
+    display: flex;
+    flex-direction: row;
+    width: 90vw;
+    margin: auto;
+    justify-content: space-around;
+    position: relative;
+    bottom: -20%;
+    flex-wrap: wrap;
+    align-items: center;
+    color: rgb(77, 77, 77);
+    z-index: 5;
+    &-img{
+        min-width: 400px;
+    }
+    &-text{
+        max-width: 500px;
+    }
+}
