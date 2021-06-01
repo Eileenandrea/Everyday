@@ -33,17 +33,6 @@ class UserTest < ActiveSupport::TestCase
     @user.email = 'juanemail.com'
     assert_not @user.save, 'Save the user with invalid email address'
   end
-
-  test 'should not save if username already exist' do
-    @user.save
-
-    @user2 = @user.dup
-    byebug
-    @user2.email = 'juan1@email.com' 
-    byebug
-    assert_not @user2.save, 'Save the user with existing username'
-  end
-
   test 'should not save if email already exist' do
     @user.save
     @user2 = @user.dup

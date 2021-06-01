@@ -9,15 +9,16 @@
     margin: auto;
     justify-content: space-around;
     position: relative;
-    bottom: -20%;
+    margin-top: -13%;
     flex-wrap: wrap;
     align-items: center;
     color: rgb(77, 77, 77);
     z-index: 5;
+    padding-bottom: 3rem;
     &-img{
         min-width: 400px;
     }
     &-text{
-        max-width: 500px;
+        width: 500px;
     }
 }

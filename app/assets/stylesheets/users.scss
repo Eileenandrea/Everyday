@@ -1,3 +1,87 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.header{
+    margin-bottom: 2rem;
+    &-form{
+        width: 400px;
+        &_container{
+            bottom: -15%;
+
+        }
+    }
+}
+
+  .login-box {
+    position: relative;
+    width: 400px;
+    padding: 30px;
+    box-sizing: border-box;
+    box-shadow: 12px 10px 0px -2px rgba(0,0,0,0.75);
+    background: linear-gradient(124deg, #e8b71d, #e3e81d, #1de840,#1ddde8,#7091ff, #dd00f3, #dd00f3);
+    background-size: 1800% 1800%;
+    
+    -webkit-animation: rainbow 18s ease infinite;
+    -z-animation: rainbow 18s ease infinite;
+    -o-animation: rainbow 18s ease infinite;
+      animation: rainbow 18s ease infinite;
+  }
+  
+  .login-box h2 {
+    margin: 0 0 20px;
+    padding: 0;
+    color: #C53F3F;
+    text-align: center;
+    font-weight: 500;
+  }
+  
+  .login-box .user-box {
+    position: relative;
+  }
+  .user-box-name{
+      width: 47.5%;
+  }
+  .login-box .user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #C53F3F;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 1px solid #C53F3F;
+    outline: none;
+    background: transparent;
+  }
+  .login-box .user-box label {
+    position: absolute;
+    top:0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #C53F3F;
+    pointer-events: none;
+    transition: .5s;
+  }
+  .login-box .user-box input:focus ~ label,
+  .login-box .user-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #C53F3F;
+    font-size: 12px;
+  }
+  #img_prev{
+    height: 60px;
+    width: auto;
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .btn-signup{
+      margin: 0;
+      padding: 0.3rem 1.5rem;
+      height: max-content;
+      
+  }

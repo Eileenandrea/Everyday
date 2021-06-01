@@ -1,11 +1,27 @@
-<div class="container">
-   
-<%= form_with(scope: :session, url: login_path, local: true) do |f|%>
-        <%= f.label :email, :class=>"form-label"%>
-        <%= f.email_field :email, placeholder: "email" , :class=>"form-control"%>
-        <%= f.label :password, :class=>"form-label"%>
-        <%= f.password_field :password, placeholder: "password" , :class=>"form-control"%>
-        <%= f.submit "login", :class=>"btn btn-post"%>
+<div class="header">
+    <div class="header-img">
+        <%=render 'svgLog'%>
+    </div>
+        
+    <div class="header-text header-form">
+    <div class="login-box">
+    <img class="img-fluid" id="img_prev"  src="<%= asset_path('pushpin.png')%>" alt="">
 
-    <%end%>
+        <h2>Create an Account</h2>
+       
+        <%= form_with(scope: :session, url: login_path, local: true) do |f|%>
+            <div class="user-box">
+                <%= f.email_field :email,:required => true%>
+                <%= f.label :email%>
+            </div>
+            <div class="user-box">
+                <%= f.password_field :password,:required => true%>
+                <%= f.label :password%>
+            </div>
+            <%= f.submit "login", :class=>"btn-signup btn-hover color-11"%>        
+            <%end%>
+        </div>
+        
+
 </div>
+</div>    

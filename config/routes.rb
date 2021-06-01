@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
 
 
-  get 'dashboard', to: 'categories#index' 
+  get 'dashboard', to: 'categories#dashboard' 
   
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
