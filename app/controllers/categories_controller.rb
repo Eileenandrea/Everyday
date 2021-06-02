@@ -35,11 +35,16 @@ class CategoriesController < ApplicationController
             render 'edit'
         end
     end
+    def destroy
+        @category.destroy
+        redirect_to categories_path
+    
+    end
     private
     def set_category
         @category = Category.find(params[:id])
    end
     def category_params
-        params.require(:category).permit(:name,:description)
+        params.require(:category).permit(:name,:description,:color)
     end
 end

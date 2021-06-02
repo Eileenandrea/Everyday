@@ -7,18 +7,18 @@ class TasksController < ApplicationController
 
     def index
         @tasks = @category.tasks
-        
+    
     end
     def new
         @task = @category.tasks.build
     end
     def create
+        byebug
         @task = @category.tasks.build(task_params)
-        @task.user = current_user
         
         if @task.save
             flash[:notice] = 'Tasks was successfully created'
-            redirect_to category_task_path(id:@task)
+            redirect_to category_path(@category)
         else
             render 'new'
         end
@@ -50,7 +50,7 @@ class TasksController < ApplicationController
         @task = Task.find(params[:id])
     end
     def task_params
-        params.require(:task).permit(:name,:description,:category_id,:user_id,:due_date)
+        params.require(:task).permit(:name,:description,:category_id,:due_date,:completed)
     end
     def check_id
         if params[:category_id].to_i != @task.category_id

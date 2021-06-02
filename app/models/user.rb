@@ -3,7 +3,7 @@ class User < ApplicationRecord
     validates_confirmation_of :password
     has_secure_password
     has_many :categories, dependent: :destroy
-    has_many :tasks, dependent: :destroy
+    has_many :tasks, through: :categories
 
     validates :firstname, presence:true,
                 length: {minimum: 2, maximum: 26}

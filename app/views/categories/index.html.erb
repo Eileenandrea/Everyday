@@ -1,6 +1,25 @@
-<h1>Welcom back <%= "#{current_user.firstname}"  %></h1>
 
-<%@categories.each do |category|%>
-    <p>Name: <%=category.name%></p>
-    <p>Description: <%=category.description%></p>
-<%end%>
+    <%=link_to 'Create New Category',new_category_path %>
+    <%@categories.each do |category|%>
+        <div class="col-sm-3">
+        <%=link_to category_path(category) do%>
+        <div class="card text-dark" style="background-color:<%=category.color%>">
+          <div class="card-body">
+            <h5 class="card-title"> <%=category.name%></h5>
+            <p class="card-text"> <%=category.description%></p>
+            <div class="d-flex">
+            <%=link_to category_path(category),{ :class => 'btn btn-primary' }   do%>
+                <i class="far fa-eye"></i>View
+                <%end%>    
+            <%=link_to edit_category_path(category),{ :class => 'btn btn-secondary'}   do%>
+                <i class="fas fa-edit"></i>Edit
+            <%end%>  
+            <%=link_to category_path(category), method: :delete, data: {confirm: "Are you sure?"},class:'btn btn-danger' do%>
+                <i class="fas fa-trash-alt"></i>Delete
+            <%end%>  
+            </div>
+            </div>
+        </div>
+      </div>
+      <%end%>
+    <%end%>

@@ -6,29 +6,23 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    
       <% if logged_in? %>
-      <li class="nav-item dropdown mr-5">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="fas fa-clipboard-list"></i> Category
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">View Profile</a></li>
-            <li><a class="dropdown-item" href="#">Edit Profile</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><%=link_to logout_path, method: :delete,class:"dropdown-item nav-link nav-link-white"  do%>
-              <i class="fas fa-sign-out-alt"></i>Log out
-              <%end%></li>
-          </ul>
-        </li>
+          <li class="nav-item">
+            <%=link_to categories_path,{ :class => 'nav-link nav-link-white', 'id' => 'navbarDropdown' }   do%>
+              <i class="fas fa-clipboard-list"></i>Categories
+              <%end%>     
+          </li>
+        
           <li class="nav-item dropdown mr-5">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle nav-link-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           <i class="fas fa-user-circle"></i> Profile
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="#">View Profile</a></li>
               <li><a class="dropdown-item" href="#">Edit Profile</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><%=link_to logout_path, method: :delete,class:"dropdown-item nav-link nav-link-white"  do%>
+              <li><%=link_to logout_path, method: :delete,class:"dropdown-item nav-link "  do%>
                 <i class="fas fa-sign-out-alt"></i>Log out
                 <%end%>
               </li>

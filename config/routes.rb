@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new'
   
   resources :users, except: [:new]
-  resources :categories, except: [:index] do
+  resources :categories do
     resources :tasks
   end
 

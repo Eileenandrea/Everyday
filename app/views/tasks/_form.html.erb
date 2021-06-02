@@ -1,4 +1,7 @@
+<div class="container text-dark">
 <%=form_with(model:[@category, @task], local:true) do |f|%>
+    <h2><%=@category.name%></h2>
+    
     <%=f.label :name%>
     <%=f.text_field :name, placeholder: "Task Name"%>
     </br>
@@ -8,5 +11,9 @@
     <%=f.label :'Due Date'%>
     <%=f.datetime_field :due_date%>
     </br>
+    <%=f.check_box :completed%>
+    <%=f.label 'Mark task as completed'%>
+  
+    </br>
     <%=f.submit "Create Task" %>
-<%end%>
+<%end%></div>

@@ -1,3 +1,28 @@
-<h1>Welcome to show page</h1>
-<p>Category name: <%=@category.name%></p>
-<p>Category name: <%=@category.description%></p>
+<img id="img_clip"  src="<%= asset_path('clipboard-clip.png')%>" alt="">
+
+<div class="clipboard shadow " style="background-color:<%=@category.color%>">
+
+    <div class="clipboard-paper shadow">
+        <h1 class="text-center"><%=@category.name%></h1>
+        <h6 class="text-center"><%=@category.description%></h6>
+            <div class="progress-container d-flex justify-content-between">
+                <div class="progress-bar-container">
+                        <div class="progress">
+                        <div class="progress-bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <%=link_to new_category_task_path(@category),{ :class => 'btn btn-primary' }   do%>
+                    <i class="far fa-edit"></i>Task
+                    <%end%>    
+            </div>
+        <% @category.tasks.each do |task|%>
+            <div class="card">
+            <p><%=task.name%></p>
+            <p><%=task.description%></p>
+            <p><%=task.due_date%></p>
+            <p><%=task.completed%></p>
+            </div>
+        <%end%>
+    </div>
+
+</div>
