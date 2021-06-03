@@ -49,7 +49,7 @@ class TasksController < ApplicationController
         @task = Task.find(params[:id])
     end
     def task_params
-        params.require(:task).permit(:name,:description,:category_id,:due_date,:completed)
+        params.require(:task).permit(:name,:description,:category_id,:due_date,:completed,:completed_at)
     end
     def check_id
         if params[:category_id].to_i != @task.category_id

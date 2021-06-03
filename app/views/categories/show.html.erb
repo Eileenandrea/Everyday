@@ -21,10 +21,10 @@
             </div>
             <div class="task-container">
                     <div class="accordion" id="accordionPanelsStayOpenExample">
-                        <% @category.tasks.each_with_index do |task,i|%>
+                        <% @category.tasks.order(:completed).order(:due_date).each_with_index do |task,i|%>
                             <div class="accordion-item">
                             <h2 class="accordion-header d-flex" id="panelsStayOpen-heading<%=i%>">
-                                <div class="btn btn-checkbox btn<%=task.completed ? '' : '-outline' %>-success">
+                                <div class="btn btn-checkbox btn<%=task.completed ? '' : '-outline' %>-success" data-reflex = 'click->Task#toggle' data-id="<%=task.id%>">
                                     <%= link_to '#' do %>
                                       <i class='fas fa-check check'></i>
                                      <%end%> 
