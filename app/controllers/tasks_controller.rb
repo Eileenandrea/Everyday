@@ -13,7 +13,6 @@ class TasksController < ApplicationController
         @task = @category.tasks.build
     end
     def create
-        byebug
         @task = @category.tasks.build(task_params)
         
         if @task.save
