@@ -3,4 +3,7 @@ class Task < ApplicationRecord
     validates :name, presence: true,
     length: {minimum: 3, maximum: 180}
     validates :description, length: {maximum: 1800}
+    scope :completed, -> do
+        where(completed:true)
+      end
 end

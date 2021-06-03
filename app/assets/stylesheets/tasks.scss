@@ -1,3 +1,31 @@
 // Place all the styles related to the tasks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.note{
+    height: 200px;
+    width: 200px;
+
+}
+.task{
+    &-container{
+        width: 80%;
+        margin: auto;
+        margin-top: 50px
+    }
+}
+.btn-checkbox{
+    border-width: 5px !important;
+}
+
+.accordion-item{
+    margin-bottom: 1rem !important;
+}
+.accordion-button{
+    border: 1px solid gray;
+}
+.check{
+    vertical-align: middle;
+    color: white !important;
+    font-size: 1.5rem;
+    
+}
