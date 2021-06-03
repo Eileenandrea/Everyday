@@ -48,3 +48,4 @@ class CategoriesController < ApplicationController
         params.require(:category).permit(:name,:description,:color)
     end
 end
+
