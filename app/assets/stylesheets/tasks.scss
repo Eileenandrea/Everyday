@@ -15,6 +15,7 @@
 }
 .btn-checkbox{
     border-width: 5px !important;
+    margin-right: 10px !important;
 }
 
 .accordion-item{
@@ -28,4 +29,10 @@
     color: white !important;
     font-size: 1.5rem;
     
+}
+.link{
+    width: max-content;
+    &-items{
+        list-style: none;
+    }
 }

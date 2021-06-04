@@ -41,3 +41,13 @@
 .progress-bar-container{
     width: 70%;
 }
+.btn-success{
+    &:hover{
+        background-color: white !important;
+    }
+}
+
+.category-details{
+    width: max-content;
+    margin: auto;
+}

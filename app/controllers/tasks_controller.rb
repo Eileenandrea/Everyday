@@ -36,7 +36,7 @@ class TasksController < ApplicationController
     end
     def destroy
         @task.destroy
-        redirect_to category_tasks_path(Category.last)
+        redirect_to category_path(@category)
     end
 
 

@@ -24,6 +24,7 @@ class CategoriesController < ApplicationController
         end
     end
     def show
+        @sort_by ||= "due_date"
     end
     def edit
     end
