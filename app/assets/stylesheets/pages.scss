@@ -1,7 +1,7 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-
+@import url(custom.css.scss);
 .header{
     display: flex;
     flex-direction: row;
@@ -9,16 +9,31 @@
     margin: auto;
     justify-content: space-around;
     position: relative;
-    margin-top: -13%;
+    margin-top: -8%;
     flex-wrap: wrap;
     align-items: center;
     color: rgb(77, 77, 77);
     z-index: 5;
-    padding-bottom: 3rem;
     &-img{
         min-width: 400px;
     }
     &-text{
-        width: 500px;
+        font-size: 1.8rem;
+        font-weight: 500;
+        letter-spacing: 2px;
+        &-container{
+            width: 500px;
+            text-align: start;
+        }
+        &-items{
+            list-style: none;
+            padding: 0%;
+            margin-left: 4px;
+        }
     }
+
+}
+.btn-container{
+    width: 30%;
+    font-weight: 600 !important;
 }

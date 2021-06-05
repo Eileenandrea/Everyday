@@ -18,8 +18,11 @@
                 <%= f.password_field :password,:required => true%>
                 <%= f.label :password%>
             </div>
-            <%= f.submit "login", :class=>"btn-signup btn-hover color-11"%>        
+            <%= f.submit "login", :class=>'btn btn-danger btn-lg btn-signup'%>        
             <%end%>
+            <div class="text-center">
+                <%= link_to "Don't have an account yet? Register", signup_path, class:'login_link'%>
+            </div>
         </div>
         
 

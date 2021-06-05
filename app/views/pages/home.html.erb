@@ -2,10 +2,23 @@
     <div class="header-img">
        <%=render 'svg1'%>
     </div>
-    <div class="header-text">
-      <h1>Everyday Journal app</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis nisi placeat odio beatae maiores aliquid unde dignissimos quo, fugiat velit atque totam, soluta eum nam ducimus illum ipsum dolores? Cum.</p>
-      <%= link_to 'Start now', signup_path, class:'btn-hover color-11' %>
+    <div class="header-text-container">
+      <h1 class="heading heading-primary heading-primary-h1 mb-5">Everyday</h1>
+      <ul class="header-text-items mb-5">
+        <li class="header-text-item">
+          <p class="header-text">Manage Work, Organize Task</p>
+        </li>
+        <li class="header-text-item">
+        <p class="header-text">Stay Focus and Improve Productivity</p>
+      </li>
+      </li>
+      <li class="header-text-item">
+      <p class="header-text">Do it with ease with <span>Everyday</span> </p>
+    </li>
+      </ul>
+      <div class="btn-container">
+      <%= link_to 'Start now', signup_path, class:'btn btn-sm animated-button thar-three' %>
+      </div>
     </div>
 </div>
 

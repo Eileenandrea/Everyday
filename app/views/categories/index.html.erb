@@ -1,25 +1,38 @@
-
+<%if @categories.count == 0%>
+    <div class="container text-center section">
+        <div class="create-img mt-5">
+          <%=render 'shared/svg_create'%>
+        </div>
+       <h3 class="text-dark  heading-primary heading-primary-h3 mt-5">You have no categories <%=link_to 'Add One Now!',new_category_path%> </h3>
+    </div>
+    
+<%else%>
     <%=link_to 'Create New Category',new_category_path %>
-    <%@categories.each do |category|%>
-        <div class="col-sm-3">
-        <%=link_to category_path(category) do%>
-        <div class="card text-dark" style="background-color:<%=category.color%>">
-          <div class="card-body">
-            <h5 class="card-title"> <%=category.name%></h5>
-            <p class="card-text"> <%=category.description%></p>
-            <div class="d-flex">
-            <%=link_to category_path(category),{ :class => 'btn btn-primary' }   do%>
-                <i class="far fa-eye"></i>View
-                <%end%>    
-            <%=link_to edit_category_path(category),{ :class => 'btn btn-secondary'}   do%>
-                <i class="fas fa-edit"></i>Edit
-            <%end%>  
-            <%=link_to category_path(category), method: :delete, data: {confirm: "Are you sure?"},class:'btn btn-danger' do%>
-                <i class="fas fa-trash-alt"></i>Delete
-            <%end%>  
-            </div>
+  <div class="row">
+        <%@categories.each do |category|%>
+            <div class="col-lg-3">
+            <%=link_to category_path(category) do%>
+            <div class="card text-dark" style="background-color:<%=category.color%>">
+            <div class="card-body">
+                <h5 class="card-title"> <%=category.name%></h5>
+                <p class="card-text"> <%=category.description%></p>
+                <div class="d-flex">
+                <%=link_to category_path(category),{ :class => 'btn btn-primary' }   do%>
+                    <i class="far fa-eye"></i>View
+                    <%end%>    
+                <%=link_to edit_category_path(category),{ :class => 'btn btn-secondary'}   do%>
+                    <i class="fas fa-edit"></i>Edit
+                <%end%>  
+                <%=link_to category_path(category), method: :delete, data: {confirm: "Are you sure?"},class:'btn btn-danger' do%>
+                    <i class="fas fa-trash-alt"></i>Delete
+                <%end%>  
+                </div>
+                </div>
             </div>
         </div>
-      </div>
-      <%end%>
+        <%end%>
+    </div>
     <%end%>
+
+<%end%>
+   

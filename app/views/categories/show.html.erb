@@ -3,8 +3,8 @@
 <div class="clipboard shadow " style="background-color:<%=@category.color%>">
 
     <div class="clipboard-paper shadow">
-        <div class="float-start sort-container">
-          <p>Sort By:</p>  <p><%=@sort_by%></p>
+        <div class="float-start sort-container d-flex">
+          <p>Sort By:</p>
           <select class="form-select" aria-label="Default select example", data-reflex="change->Task#sort">
               <option value= "due_date" selected>Due Date</option>
               <option value="name">Name</option>

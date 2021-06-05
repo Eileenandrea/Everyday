@@ -35,8 +35,13 @@
                 <%= f.label 'confirm password'%>
                 
             </div>
-            <%= f.submit(@user.new_record? ? 'sign up' : 'Update Account', class:'btn-signup btn-hover color-11')%>
-        
+
+             <%= f.submit(@user.new_record? ? 'Sign Up' : 'Update Account', class:'btn btn-danger btn-lg btn-signup')%>
+            <div class="text-center">
+                <%= link_to 'Already have an account?Log in', login_path, class:'login_link'%>
+            </div>
+      </div>
+
             <%end%>
         </div>
         

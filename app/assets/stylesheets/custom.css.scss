@@ -1,13 +1,21 @@
 @import 'bootstrap/dist/css/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+$font-body: 'Hind', sans-serif;
+$font-heading:  'Montserrat', sans-serif;
+
 html{
     min-height: 100vh;
     height: max-content;
+    font-size: 62.5%;
 }
 body{
     min-height: 100vh;
     height: max-content;
     background-color: #eeeeee;
     color: white;
+    font-family: $font-body;
+    font-size: 1.2rem;
+    
 }
 *,
 a::before,
@@ -15,6 +23,28 @@ a::after {
   margin: 0;
   padding: 0;
   box-sizing: inherit; }
+
+.heading{
+    &-primary{
+        font-family: $font-heading ;
+        font-weight: 700;
+
+        &-h1{
+            font-size: 5rem;
+        }
+        &-h3{
+            a{
+                color: #c53f3f;
+                text-decoration: none;
+            }
+        }
+    }
+
+}
+.section{
+    padding: 3% 0 7%;
+}
+
 .rainbow { 
   position: relative;
   width: 100%;
@@ -47,11 +77,16 @@ a::after {
       50%{background-position:100% 19%}
       100%{background-position:0% 82%}
   }
+  .svg-home{
+      margin-top: -4%;
+  }
   .navbar{
       background-color: transparent !important;
         position: relative;
         top: 0%;
         justify-content: space-between !important;
+        width: 90vw;
+        margin: auto;
     }
     
 .navbar-brand-logo{
@@ -69,46 +104,12 @@ a::after {
 .nav-link{
     &-white{
         color: white !important;
-        font-size: 1.2rem !important;
+        font-size: 1.4rem !important;
         font-weight: 500 !important;
     }
 }
 .icon{
     margin-right: 5px;
-}
-.btn-hover {
-    font-size: 16px;
-    font-weight: 600;
-    color: #fff;
-    cursor: pointer;
-    margin: 20px;
-    height: 55px;
-    text-align:center;
-    border: none;
-    background-size: 300% 100%;
-
-    border-radius: 50px;
-    -o-transition: all .4s ease-in-out;
-    -webkit-transition: all .4s ease-in-out;
-    transition: all .4s ease-in-out;
-    padding: 0.5rem 1.5rem;
-    text-decoration: none;
-}
-
-.btn-hover:hover {
-    color: white;
-    background-position: 100% 0;
-    -o-transition: all .4s ease-in-out;
-    -webkit-transition: all .4s ease-in-out;
-    transition: all .4s ease-in-out;
-}
-
-.btn-hover:focus {
-    outline: none;
-}
-
-.btn-hover.color-11 {
-    background-image: linear-gradient(to right, #eb3941, #f15e64, #e14e53, #e2373f);  box-shadow: 0 5px 15px rgba(242, 97, 103, .4);
 }
 
 .footer{
@@ -119,4 +120,9 @@ a::after {
 }
 .div-container{
     min-height: 80vh;
+}
+.btn-start{
+    font-size: 1.8rem;
+    font-weight: 600;
+    padding: 2rem 3rem !important;
 }
