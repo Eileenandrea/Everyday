@@ -1,10 +1,10 @@
 class Category < ApplicationRecord
     validates :name, presence: true,
-                length: {minimum: 3, maximum: 180}
-    validates :description, length: {maximum: 1800}
+                length: {minimum: 3, maximum: 15}
+    validates :description, length: {maximum: 140}
     belongs_to :user
     has_many :tasks, dependent: :destroy
-
+    attribute :color, :string, default: '#ffff66'
     def percent_complete
         return 0 if total_items == 0
         (100 * completed_items.to_f / total_items).round(1)
@@ -14,6 +14,9 @@ class Category < ApplicationRecord
     end
     def total_items
         @total_items ||= tasks.count
+    end
+    def active_items
+        @active_items = total_items - completed_items 
     end
     def status
         case percent_complete.to_i

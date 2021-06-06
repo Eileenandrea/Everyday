@@ -8,15 +8,20 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
     
       <% if logged_in? %>
+        <li class="nav-item">
+          <%=link_to dashboard_path,{ :class => 'nav-link nav-link-white', 'id' => 'navbarDropdown' }   do%>
+            <i class="fas fa-columns icon"></i>Dashboard
+          <%end%>     
+        </li>
           <li class="nav-item">
             <%=link_to categories_path,{ :class => 'nav-link nav-link-white', 'id' => 'navbarDropdown' }   do%>
-              <i class="fas fa-clipboard-list"></i>Categories
+              <i class="fas fa-clipboard-list icon"></i>Categories
               <%end%>     
           </li>
         
           <li class="nav-item dropdown mr-5">
           <a class="nav-link dropdown-toggle nav-link-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="fas fa-user-circle"></i> Profile
+          <i class="fas fa-user-circle icon"></i> Profile
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="#">View Profile</a></li>

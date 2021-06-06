@@ -1,3 +1,8 @@
+<div class="page-header">
+    <h1 class="text-center heading heading-primary heading-primary-h1">
+        Task Categories
+    </h1>
+</div>
 <%if @categories.count == 0%>
     <div class="container text-center section">
         <div class="create-img mt-5">
@@ -7,32 +12,34 @@
     </div>
     
 <%else%>
-    <%=link_to 'Create New Category',new_category_path %>
-  <div class="row">
+    <div class="categories container d-flex">
+        <%=link_to new_category_path, class: "create-category" do%>
+            <p><i class="fas fa-plus" id="add-category"></i></p><p>Create New Category</p> 
+        <%end%>
         <%@categories.each do |category|%>
-            <div class="col-lg-3">
-            <%=link_to category_path(category) do%>
-            <div class="card text-dark" style="background-color:<%=category.color%>">
-            <div class="card-body">
-                <h5 class="card-title"> <%=category.name%></h5>
-                <p class="card-text"> <%=category.description%></p>
-                <div class="d-flex">
-                <%=link_to category_path(category),{ :class => 'btn btn-primary' }   do%>
-                    <i class="far fa-eye"></i>View
-                    <%end%>    
-                <%=link_to edit_category_path(category),{ :class => 'btn btn-secondary'}   do%>
-                    <i class="fas fa-edit"></i>Edit
-                <%end%>  
-                <%=link_to category_path(category), method: :delete, data: {confirm: "Are you sure?"},class:'btn btn-danger' do%>
-                    <i class="fas fa-trash-alt"></i>Delete
-                <%end%>  
+            <%=link_to category_path(category), class:"category-link" do%>
+                <div class="category-card" style="background-color:<%=category.color%>">
+                    <div class="category-card-body">
+                        <h5 class="category-card-title"> <%=category.name%></h5>
+                        <p class="category-task-num"><i class="fas fa-clipboard-list"></i> <%=category.active_items%> Pending Tasks</p>
+                        <p class="category-card-text"> <%=category.description%></p>
+                        <div class="category-links d-flex">
+                            <%=link_to category_path(category),{ :class => 'btn btn-primary btn-lg category-link' }   do%>
+                                <i class="far fa-eye"></i>View
+                            <%end%>    
+                            <%=link_to edit_category_path(category),{ :class => 'btn btn-secondary btn-lg category-link'}   do%>
+                                <i class="fas fa-edit"></i>Edit
+                            <%end%>  
+                            <%=link_to category_path(category), method: :delete, data: {confirm: "Are you sure?"},class:'btn btn-danger btn-lg category-link' do%>
+                                <i class="fas fa-trash-alt"></i>Delete
+                            <%end%>  
+                        </div>
+                    </div>
                 </div>
-                </div>
-            </div>
-        </div>
+            <%end%>
         <%end%>
     </div>
-    <%end%>
+
 
 <%end%>
    

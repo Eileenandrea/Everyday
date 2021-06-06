@@ -1,13 +1,23 @@
 <%=form_with(model:@category, local:true) do |f|%>
-    <%=f.label :name%>
-    <%=f.text_field :name, placeholder: "Category Name"%>
-    </br>
-    <%=f.label 'Category color'%>
-    <%=f.color_field :color, value:"#ffff66"%>
-    </br>
-    <%=f.label :description%>
-    <%=f.text_area :description, placeholder: "Category Description"%>
-    </br>
+    <%=f.text_field :name, placeholder: "Category Name",class:"form-control form-input mb-3"%>
+    <div class="color-input mb-3">
+        <%=f.label 'Category color'%>
+        <%=f.color_field :color, value:"#{@category.color}"%>
+    </div>
 
-    <%=f.submit "Create Category" %>
+    <%=f.text_area :description, placeholder: "Category Description",class:"form-control form-input mb-4", id:"form-description"%>
+    <div class="d-flex">
+    <%=f.button class:"btn btn-lg btn-emboss btn-green me-auto" do%>
+        <%if @category.new_record?%>
+            <i class="fas fa-plus icon"></i>New
+        <%else%>
+            <i class="fas fa-edit icon"></i>Update
+        <%end%>
+        Category
+    <%end%>
+    <%= link_to categories_path, class:"btn btn-lg btn-emboss btn-red" do%>
+        <i class="fas fa-times icon"></i>cancel
+        <%end%>
+    </div>    
+   
 <%end%>

@@ -4,26 +4,111 @@
 
 @import 'bootstrap/dist/css/bootstrap';
 
+.categories > :not(:last-child){
+        margin-right: 2rem;
+    }
+.categories{
+    :hover{
+        color: rgb(207, 207, 207) !important;
+    }
+}
+
+    
+.category{
+    &-links{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+    &-link{
+        cursor: pointer;
+        text-decoration: none;
+        height: max-content;
+        margin: 0 !important;
+    }
+    &-task-num{
+        color: #ff1c1c;
+        font-weight: 600;
+    }
+    &-card{
+        min-width: 250px !important;
+        min-height: 250px !important;
+        max-width: 250px !important;
+        border-radius: 5px;
+        box-shadow: 3px 3px 10px  rgba(0,0,0,0.65);
+        box-sizing: border-box;
+        padding: 2%;
+        text-decoration: none !important;
+        position: relative;
+        transition: all .2s ease-in-out;
+         &-title{
+             font-family: 'Montserrat', sans-serif;
+             letter-spacing: 0px;
+             font-size: 2.8rem;
+            font-weight: 700;
+             color: #353535;
+
+        }
+        &-text{
+            font-size: 1.4rem !important;
+            color: rgb(54, 54, 54) !important;
+            font-weight: 500;
+
+        }
+        
+
+    }
+    &-card:hover{
+        box-shadow: 5px 5px 20px  rgba(0,0,0,0.5);
+        transform: translateY(-5px);
+    }
+}
+.create-category{
+    width: 250px;
+    box-sizing: border-box;
+    border: 3px white dashed;
+    text-decoration: none;
+    color: white;
+    font-size: 2.8rem;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    padding: 3%;
+    border-radius: 20px;
+  
+}
+
 .clipboard{
-    width: 90%;
-    height: 80vw;
-    background:rgb(241, 192, 30);
+    min-width: 90%;
+    min-height: 80vw;
+    max-height: max-content;
     margin: 70px auto;
-    border-radius: 50px;
+    border-radius: 30px;
     position: relative;
     padding-top: 3%;
+    padding-bottom: 3%;
+    box-shadow: 8px 8px 0px 1px rgba(190, 190, 190, 0.75) !important;
+    border: 2px solid black;
     &-paper{
-        background: white;
-        min-height: 95%;
+        background: #fcfcfc;
+        min-height: 80vw;
         width: 90%;
         margin: auto;
         padding-top: 3%;
         color: black;
+        border-radius: 10px;
+        box-shadow: 5px 5px 0px 1px rgba(0,0,0,0.75);
+        border: 2px solid black;
     }
+}
+#add-category{
+    font-size: 9rem;
+    display: inline;
+
 }
 #img_clip{
     position: absolute;
-    top: 8%;
+    top: -8%;
     left: 50%;
     transform: translateX(-50%);
     height: 12.5vw;
@@ -31,12 +116,14 @@
 
 }
 .progress-container{
-    background-color: rgb(190, 190, 190);
+    background-color: rgb(253, 253, 253);
     padding: 1.3rem 2rem 0 2rem;
-    width: 80%;
+    width: 80% !important;
     margin:auto;
     margin-top: 1rem;
     border-radius: 10px;
+    border: 2px solid black;
+    box-shadow: 5px 5px 0px 1px rgba(0,0,0,0.75);
 }
 .progress-bar-container{
     width: 70%;
@@ -57,4 +144,53 @@
 }
 #freepik_stories-new-entries{
     height: 100%;
+}
+
+
+//sign up form
+
+#signup-page{
+    margin-top: 8%;
+}
+
+.form-input{
+    font-size: 1.4rem !important;
+    background-color:rgba(255, 255, 255, 0.212) !important;
+    color: white !important;
+    font-size: 1.5rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 1px !important;
+
+}
+::placeholder{
+    color: white !important;
+    opacity: 1 !important;
+}
+#form-description{
+    min-height: 200px;
+}
+.btn-emboss{
+
+    box-shadow: 5px 5px 0px 1px rgba(0,0,0,0.75);
+    position: relative;
+    transition: all 0.2s ease-in-out;
+    &:hover{
+        transform: translateY(-2px);
+        box-shadow: 7px 7px 0px 1px rgba(0,0,0,0.75);
+    }
+    &:focus{
+        transform: translateY(0px) !important;
+        box-shadow: 3px 3px 0px 1px rgba(0,0,0,0.75) !important;
+    }
+
+}
+.btn-green{
+    color: white !important;
+    background-color: green !important;
+    border:2px solid green !important;
+}
+.btn-red{
+    color: white !important;
+    background-color: red !important;
+    border:2px solid red !important;
 }

@@ -1,1 +1,18 @@
-<%= render 'form'%>
+<%=render 'shared/errors', obj: @category%>
+<div class="header header-form_container" id="signup-page">
+    <div class="header-img">
+        <%=render 'shared/svg_create'%>
+    </div>
+    
+    <div class="header-text header-form">
+        <div class="login-box">
+
+            <h2>Update Category</h2>
+            <%= render 'form'%>
+        
+        </div>
+    </div>
+</div>
+
+
+

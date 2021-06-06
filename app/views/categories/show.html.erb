@@ -1,8 +1,8 @@
+
+<div class="clipboard  " style= "background-color:<%= hex_color_to_rgba(@category.color, 0.9)%>">
 <img id="img_clip"  src="<%= asset_path('clipboard-clip.png')%>" alt="">
 
-<div class="clipboard shadow " style="background-color:<%=@category.color%>">
-
-    <div class="clipboard-paper shadow">
+    <div class="clipboard-paper">
         <div class="float-start sort-container d-flex">
           <p>Sort By:</p>
           <select class="form-select" aria-label="Default select example", data-reflex="change->Task#sort">
@@ -13,16 +13,16 @@
           </select>
         </div>
         <div class="category-details">
-          <h1 class="text-center"><%=@category.name%></h1>
-          <h6 class="text-center"><%=@category.description%></h6>
+          <h1 class="text-center heading heading-primary heading-primary-h1 text-dark mb-4 mt-3"><%=@category.name%></h1>
+          <h6 class="text-center  heading heading-primary heading-primary-h3 text-dark mb-5"><%=@category.description%></h6>
         </div>
         
-            <div class="progress-container d-flex justify-content-between">
+            <div class="progress-container d-flex justify-content-between mt-5 ">
                 <div class="progress-bar-container">
                   <div class="progress mb-4 ">
                     <div class="progress-bar bg-primary" role="progressbar" style="width: <%=@category.percent_complete%>%" aria-valuenow="<%=@category.percent_complete%>" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
-                    <p class="text-secondary"><small><%= @category.percent_complete%>% complete (<%=@category.completed_items%>/<%=@category.total_items%> Todo Items)</small></p>
+                    <p class="text-dark"><small><%= @category.percent_complete%>% complete (<%=@category.completed_items%>/<%=@category.total_items%> Todo Items)</small></p>
                 </div>
                 <div>
                 <%=link_to new_category_task_path(@category),{ :class => 'btn btn-primary' }   do%>
