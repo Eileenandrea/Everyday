@@ -4,8 +4,8 @@
 
     <div class="clipboard-paper">
         <div class="float-start sort-container d-flex">
-          <p>Sort By:</p>
-          <select class="form-select" aria-label="Default select example", data-reflex="change->Task#sort">
+          <p class='sort-text'>Sort By:</p>
+          <select class="form-select form-select_sort" aria-label="Default select example", data-reflex="change->Task#sort">
               <option value= "due_date" selected>Due Date</option>
               <option value="name">Name</option>
               <option value="created_at">Date Created</option>
@@ -14,19 +14,19 @@
         </div>
         <div class="category-details">
           <h1 class="text-center heading heading-primary heading-primary-h1 text-dark mb-4 mt-3"><%=@category.name%></h1>
-          <h6 class="text-center  heading heading-primary heading-primary-h3 text-dark mb-5"><%=@category.description%></h6>
+          <h5 class="text-center text-dark mb-5 "id="category-description"><%=@category.description%></h5>
         </div>
         
             <div class="progress-container d-flex justify-content-between mt-5 ">
                 <div class="progress-bar-container">
-                  <div class="progress mb-4 ">
-                    <div class="progress-bar bg-primary" role="progressbar" style="width: <%=@category.percent_complete%>%" aria-valuenow="<%=@category.percent_complete%>" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress mb-3 ">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: <%=@category.percent_complete%>%" aria-valuenow="<%=@category.percent_complete%>" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                     <p class="text-dark"><small><%= @category.percent_complete%>% complete (<%=@category.completed_items%>/<%=@category.total_items%> Todo Items)</small></p>
                 </div>
                 <div>
-                <%=link_to new_category_task_path(@category),{ :class => 'btn btn-primary' }   do%>
-                  <i class="far fa-edit"></i>Task
+                <%=link_to new_category_task_path(@category),{ :class => 'btn btn-lg btn-success btn-emboss' }   do%>
+                  <i class="fas fa-plus icon"></i>Task
                   <%end%>    
                   </div>
             
@@ -34,36 +34,46 @@
             <div class="task-container">
                     <div class="accordion" id="accordionPanelsStayOpenExample">
                         <% @category.tasks.order(:completed).order(:"#{@sort_by}").each_with_index do |task,i|%>
-                            <div class="accordion-item">
-                            <h2 class="accordion-header d-flex" id="panelsStayOpen-heading<%=i%>" >
-                               
-                            <div class="mr-3 btn btn-checkbox btn<%=task.completed ? '' : '-outline' %>-success" data-reflex = 'click->Task#toggle' data-id="<%=task.id%>" >
+                          <div class="accordion-item">
+                            <h2 class="accordion-header d-flex align-items-start " id="panelsStayOpen-heading<%=i%>" >
+                               <div>
+                                  <div class="mr-3 btn btn-checkbox btn<%=task.completed ? '' : '-outline' %>-success" data-reflex = 'click->Task#toggle' data-id="<%=task.id%>" >
                                     <%= link_to '#' do %>
                                       <i class='fas fa-check check'></i>
-                                     <%end%> 
-                                </div>
+                                      <%end%> 
+                                  </div>
+                               </div>
+                              
                                 
-                                
-                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse<%=i%>" aria-expanded="false" aria-controls="panelsStayOpen-collapse<%=i%>" style= "background-color:<%= hex_color_to_rgba(@category.color, 0.5)%>">
-                                <%=task.name%>
+                              
+                              <button class="accordion-button collapsed"  type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse<%=i%>" aria-expanded="false" aria-controls="panelsStayOpen-collapse<%=i%>" style= "background-color:<%= task.completed ? 'rgba(46, 49, 49, 0.3)' : hex_color_to_rgba(@category.color, 0.5)%>">
+                                  <div>
+                                    <div class="task-name-container d-flex">
+                                       <p class="task-name" id="task-name" style="text-decoration: <%=task.completed ? 'line-through': 'none' %>">  <%=task.name%> </p>
+                                        <p class="task-priority badge bg-<%=task.priority_status_color%>"><%=task.priority_status%></p> 
+                                        <p class="task-status badge rounded-pill bg-<%=task.status_color%>"><%=task.status%></p>
+                                    </div>
+                                   
+                                    <p class="task-due_date text-danger"><i class="fas fa-stopwatch "></i> <%=task.due_date.strftime("%A, %d %B %Y")%></p> 
+                                  </div> 
                               </button>
                             </h2>
-                            <div id="panelsStayOpen-collapse<%=i%>" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-heading<%=i%>" style= "background-color:<%= hex_color_to_rgba(@category.color, 0.1)%>">
-                              <div class="accordion-body">
+                            <div id="panelsStayOpen-collapse<%=i%>" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-heading<%=i%>" style= "background-color:<%= task.completed ? 'rgba(46, 49, 49, 0.1)' : hex_color_to_rgba(@category.color, 0.1)%>">
+                              <div class="accordion-body task-body">
                               <div class="link float-end">
                                 <ul class="dflex flex-row link-items">
                                   <li class="link-item d-inline-block">
-                                    <%=link_to category_task_path(@category,task),{ :class => 'btn text-success' }   do%>
+                                    <%=link_to category_task_path(@category,task),{ :class => 'btn btn-task text-success' }   do%>
                                       <i class="fas fa-eye"></i>
                                     <%end%>  
                                   </li>
                                   <li class="link-item d-inline-block">
-                                    <%=link_to edit_category_task_path(@category,task),{ :class => 'btn text-primary' }   do%>
+                                    <%=link_to edit_category_task_path(@category,task),{ :class => 'btn btn-task text-primary' }   do%>
                                       <i class="fas fa-edit"></i>
                                     <%end%>  
                                   </li>
                                   <li class="link-item d-inline-block">
-                                    <%=link_to category_task_path(@category,task), method: :delete, data: {confirm: "Are you sure?"},class:'btn text-danger' do%>
+                                    <%=link_to category_task_path(@category,task), method: :delete, data: {confirm: "Are you sure?"},class:'btn btn-task text-danger' do%>
                                         <i class="fas fa-trash-alt"></i>
                                     <%end%>
                                   </li>

@@ -24,15 +24,98 @@
 .accordion-button{
     border: 1px solid gray;
 }
-.check{
-    vertical-align: middle;
+.h4-heading{
     color: white !important;
-    font-size: 1.5rem;
-    
+    text-align: center;
+    font-weight: 600;
+}
+#form-description-task{
+    min-height: 140px !important;
+}
+#task-edit-new-page{
+    margin-top: 5% !important;
+}
+#task-est-pomodoro{
+    width: 5rem;
 }
 .link{
     width: max-content;
     &-items{
         list-style: none;
     }
+}
+.task-label{
+    font-size: 1.2rem;
+    font-weight: 600;
+
+}
+
+.timer{ 
+    &-lists{
+        list-style: none !important;
+        justify-content: center;
+        padding-left: 0 !important;
+        &>:not(:last-child){
+            margin-right: 5px !important;
+        }
+    }
+
+    &-container{
+        background-color: rgba(255, 255, 255, 0.1) !important;
+        border-radius: 10px;
+        text-align: center;
+        width: 80%;
+        margin: auto;
+        padding: 3% 3% 6%;
+    }
+}
+
+.btn-timer{
+    color: white !important;
+    background-color: rgba(255, 255, 255, 0.199) !important;
+    &:hover{
+        background-color: #393e46 !important;        
+    }
+}
+.btn-timer.active-timer{
+    background-color: #393e46 !important;
+}
+.option-container{
+    text-align: center;
+
+}
+
+#timer-string{
+    font-size: 7rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+.btn-time{
+    font-size: 3rem !important;
+    color: #393e46 !important;
+    background-color: white !important;
+    font-weight: 600;
+    padding: 1rem 3rem;
+    margin-top: 2rem;
+}
+.task-status{
+    font-weight: 800 !important;
+}
+.task-main-details{
+    width: 85%;
+    background-color: rgba(0, 0, 0, 0.568);
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 3rem;
+    box-sizing: border-box;
+    padding: 3% 7% !important;
+    
+}
+.item-checkbox{
+    padding: 3.75px 7.5px;
+}
+#task-links{
+    padding-left: 0px !important;
+    margin-left: -7.5px !important;
 }

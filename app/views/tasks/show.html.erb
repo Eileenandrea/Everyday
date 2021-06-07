@@ -1,7 +1,60 @@
-<h2>Show task </h2>
+<audio id="alarmAudio">
+  <source src="<%= asset_path('alarm.mp3')%>" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
 
-<p>Task name: <%=@task.name%></p>
+<div class="row">
+    <div class="col-lg-5 d-flex flex-column">
+            <div class="timer-container">
+                <div class="options-container">
+                    <ul class="timer-lists d-flex">
+                        <li class="timer-list" data-time="1500">
+                            <p class="btn btn-timer active-timer">Pomodoro</p>
+                        </li>                      
+                        <li class="timer-list" data-time="300">
+                            <p class="btn btn-timer">Short Break</p>
+                        </li>
+                        <li class="timer-list" data-time="900">
+                            <p class="btn btn-timer">Long Break</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class='timer'><h1 id="timer-string">25:00</h1></div>
+                <div class="btn btn-time" id="btn-time-action" data-action="start">Start</div>
+            </div>
 
-<p>Task description: <%=@task.description%></p>
+            <div class="task-main-details">
+                <h2 class="heading heading-primary heading-primary-h2"><%=@task.name%></h2>
+                <p>Deadline: <%=@task.due_date.strftime("%A, %d %B %Y")%></p>
+                <p>Status: <span class="task-status text-<%=@task.status_color%>"><%=@task.status%></span></p>
+                <ul class="dflex flex-row link-items" id="task-links">
+                <li class="link-item d-inline-block">
+                  <%=link_to category_path(@category),{ :class => 'btn btn-task text-secondary' }   do%>
+                    <i class="fas fa-arrow-left"></i>
+                  <%end%>  
+                </li>
+                <li class="link-item d-inline-block item-checkbox">
+                      <input type="checkbox" class="btn-task form-check-input" id="exampleCheck1" data-reflex = 'change->Task#toggle' data-id="<%=@task.id%>" <%=@task.completed ? 'checked' : ''%>>
+               </li>
+                <li class="link-item d-inline-block">
+                  <%=link_to edit_category_task_path(@category,@task),{ :class => 'btn btn-task text-primary' }   do%>
+                    <i class="fas fa-edit"></i>
+                  <%end%>  
+                </li>
+           
+                <li class="link-item d-inline-block">
+                  <%=link_to category_task_path(@category,@task), method: :delete, data: {confirm: "Are you sure?"},class:'btn btn-task text-danger' do%>
+                      <i class="fas fa-trash-alt"></i>
+                  <%end%>
+                </li>
+              </ul>
+            </div>
 
-<p>Task Due Date: <%=@task.due_date%></p>
+    </div>
+    
+    <div class="col-lg-6">
+    <h1 class='text-center'>Task Description</h1>
+    <p class='text-center'> <%=@task.description%></p></div>
+</div>
+
+<%= javascript_pack_tag 'task_js' %>

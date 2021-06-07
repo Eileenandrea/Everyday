@@ -13,6 +13,7 @@ class Category < ApplicationRecord
         @completed_items ||= tasks.completed.count
     end
     def total_items
+
         @total_items ||= tasks.count
     end
     def active_items

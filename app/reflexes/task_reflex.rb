@@ -8,5 +8,8 @@ class TaskReflex < ApplicationReflex
   def sort
     @sort_by = element.value
   end
+  def pomodoro
+    byebug
+  end
 end
 

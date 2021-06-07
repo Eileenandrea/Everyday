@@ -14,7 +14,7 @@ body{
     background-color: #393e46;
     color: white;
     font-family: $font-body;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     
 }
 *,
@@ -37,6 +37,9 @@ a::after {
                 color: #c53f3f;
                 text-decoration: none;
             }
+        }
+        &-h2{
+            text-transform: none !important;
         }
     }
 
@@ -133,6 +136,7 @@ a::after {
 }
 .div-container{
     min-height: 80vh;
+    padding: 3% 0 !important;
 }
 .btn-start{
     font-size: 1.8rem;
