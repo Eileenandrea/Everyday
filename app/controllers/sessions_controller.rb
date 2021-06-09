@@ -1,5 +1,8 @@
 class SessionsController < ApplicationController
     def new
+        if logged_in?
+            redirect_to dashboard_path
+        end
     end
     def create
         user = User.find_by(email: params[:session][:email])
