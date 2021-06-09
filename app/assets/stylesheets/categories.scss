@@ -325,11 +325,14 @@
     box-shadow: 5px 5px 0px 2px rgba(0,0,0,0.75);
     box-sizing: border-box;
     padding: 4% 0% 3% 0%;
+    display: none;
+  
 }
 .dashboard-tasks.active-sel{
     z-index: 100;
 }
 .dashboard-head.active-sel{
+    display: inline-block;
     z-index: 100;
 }
 #today-task-container{
