@@ -29,6 +29,7 @@ class TasksController < ApplicationController
     def edit
     end
     def update
+
         if @task.update(task_params)
             flash[:notice] = 'Task was updated successfully.'
             redirect_to category_task_path(id:@task)
@@ -51,7 +52,7 @@ class TasksController < ApplicationController
         @task = Task.find(params[:id])
     end
     def task_params   
-        params.require(:task).permit(:name,:description,:category_id,:due_date,:completed,:completed_at,:actual_pomodoro)
+        params.require(:task).permit(:name,:description,:category_id,:due_date,:completed,:completed_at,:est_pomodoro,:actual_pomodoro,:break)
     end
     def check_id
         if params[:category_id].to_i != @task.category_id
