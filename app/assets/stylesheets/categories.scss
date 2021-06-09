@@ -329,10 +329,11 @@
   
 }
 .dashboard-tasks.active-sel{
+    display: inline-block;
     z-index: 100;
 }
 .dashboard-head.active-sel{
-    display: inline-block;
+
     z-index: 100;
 }
 #today-task-container{
