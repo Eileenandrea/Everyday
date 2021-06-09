@@ -15,3 +15,6 @@ ActiveStorage.start()
 import "bootstrap"
 
 import "controllers"
+
+$(".flash").fadeOut(3000);
+console.log(document.querySelector('.flash'));

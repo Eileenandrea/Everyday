@@ -25,7 +25,7 @@
                     <p class="text-dark"><small><%= @category.percent_complete%>% complete (<%=@category.completed_items%>/<%=@category.total_items%> Todo Items)</small></p>
                 </div>
                 <div>
-                <%=link_to new_category_task_path(@category),{ :class => 'btn btn-lg btn-success btn-emboss' }   do%>
+                <%=link_to new_category_task_path(@category),{ :class => 'btn btn-lg btn-green btn-emboss' }   do%>
                   <i class="fas fa-plus icon"></i>Task
                   <%end%>    
                   </div>

@@ -30,7 +30,7 @@
                             <%=link_to edit_category_path(category),{ :class => 'btn btn-secondary btn-lg category-link'}   do%>
                                 <i class="fas fa-edit"></i>Edit
                             <%end%>  
-                            <%=link_to category_path(category), method: :delete, data: {confirm: "Are you sure?"},class:'btn btn-danger btn-lg category-link' do%>
+                            <%=link_to category_path(category), method: :delete, data: {confirm: "Are you sure? deleting a Category will also delete all the task in it"},class:'btn btn-danger btn-lg category-link' do%>
                                 <i class="fas fa-trash-alt"></i>Delete
                             <%end%>  
                         </div>

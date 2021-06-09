@@ -9,7 +9,7 @@
     <div class="d-flex flex-column mt-2">
         
         <%=f.label :'Priority',class:"task-label"%>
-        <%=f.select :priority, [['Low',1],['Medium',2],['High',3]], selected:"#{@task.priority}"%>
+        <%=f.select :priority, [['Low',3],['Medium',2],['High',1]], selected:"#{@task.priority}"%>
         <div class="d-flex mt-2">
             <div class="me-auto">
                 <%=f.check_box :completed%>

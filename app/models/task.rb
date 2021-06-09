@@ -10,21 +10,21 @@ class Task < ApplicationRecord
   
     def priority_status
       case priority
-        when 1
-          'low'
+        when 3
+          'Low'
         when 2
           'Medium'
-        when 3
-          'high'
+        when 1
+          'High'
         end
     end
     def priority_status_color
       case priority
-        when 1
+        when 3
           'success'
         when 2
           'warning'
-        when 3
+        when 1
           'danger'
         end
     end

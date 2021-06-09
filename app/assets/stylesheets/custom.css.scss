@@ -98,6 +98,7 @@ a::after {
         justify-content: space-between !important;
         width: 90vw;
         margin: auto;
+        z-index: 5000;
     }
     
 .navbar-brand-logo{
@@ -153,4 +154,30 @@ a::after {
     background: linear-gradient(-45deg, #ee7752, #be3268, #1e87ad, #20b693);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
+}
+
+
+//flash message
+
+.flash{
+    position: absolute !important;
+    top: 5 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 25% !important;
+    z-index: 5000;
+    padding: 2% 1%;
+    box-shadow: 5px 5px 0px 1px rgba(44, 44, 44, 0.75);
+    font-weight: 600 !important;
+    font-family: $font-heading !important;
+    text-align: center;
+}
+.error-messages{
+    position: absolute;
+    top: 10%;
+    z-index: 5000;
+    width: 50%;
+    margin: auto;
+    left: 50%;
+    transform: translateX(-50%);
 }
