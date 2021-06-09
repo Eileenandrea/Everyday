@@ -193,6 +193,13 @@
     align-items: center;
     justify-content: center;
 }
+.btn-checkbox.btn-checkbox-dashboard{
+    width: 61px !important;
+    height: 61px !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
 .check{
     vertical-align: middle;
     color: white !important;
@@ -335,12 +342,13 @@
 }
 
 #all-task-container{
-    background-color: lightseagreen;
+    background-color: #c53f3f;
     border-radius: 10px 0px 10px 10px;
 }
 #all-task-head{
-    background-color: lightseagreen;
+    background-color: #c53f3f;
     margin-left: auto;
+    color: white !important;
 
 }
 .mt-big{

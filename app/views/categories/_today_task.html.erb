@@ -5,7 +5,7 @@
             <div class="accordion-item">
                 <h2 class="accordion-header d-flex align-items-start " id="panelsStayOpen-heading<%=i%>" >
                 <div>
-                    <div class="mr-3 btn btn-checkbox btn<%=task.completed ? '' : '-outline' %>-success" data-reflex = 'click->Task#toggleTaskDashboard' data-id="<%=task.id%>" data-active="today" >
+                    <div class="mr-3 btn btn-checkbox btn-checkbox-dashboard btn<%=task.completed ? '' : '-outline' %>-success" data-reflex = 'click->Task#toggleTaskDashboard' data-id="<%=task.id%>" data-active="today" >
                         <%= link_to '#' do %>
                         <i class='fas fa-check check'></i>
                         <%end%> 
