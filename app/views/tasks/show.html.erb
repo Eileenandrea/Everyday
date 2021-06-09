@@ -53,8 +53,31 @@
     </div>
     
     <div class="col-lg-6">
-    <h1 class='text-center'>Task Description</h1>
-    <p class='text-center'> <%=@task.description%></p></div>
+      <div id='task-description-container'>
+        <h1 class='text-center'>Task Description</h1>
+        <p class='text-center'> <%=@task.description%></p>
+          <div class="add-update">
+              <%= form_with(model: [@category, @task, @comment]) do |f| %>
+                <div class="input-group">
+                <%=f.text_area :body, placeholder: "Add Task Update",class:"form-control form-input", id:"form-comment"%>
+                <div class="input-group-append">
+                    </div>
+                </div>
+                <%=f.submit "Add Update",class:  "btn btn-light input-group-btn float-end", id:'btn-comment'%>
+              <%end%>
+          </div>
+            <div class="updates" id="style-2">
+                  <%@task.comments.reverse.each do |update|%>
+                    <div id="task-update">
+                      <p class="ms-4 float-end"><%=update.created_at.strftime("%B %d, %Y at %l:%M %P")%></p>
+                      <p><%=update.body%></p>
+                    </div>
+                  <%end%>
+            </div>
+      </div>
+    </div>
+
+    
 </div>
 
 <%= javascript_pack_tag 'task_js' %>

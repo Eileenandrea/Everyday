@@ -1,5 +1,6 @@
 class Task < ApplicationRecord
     belongs_to :category
+    has_many :comments, dependent: :destroy
     validates :name, presence: true,
     length: {minimum: 3, maximum: 180}
     validates :description, length: {maximum: 1800}

@@ -6,6 +6,17 @@ class CategoriesController < ApplicationController
         @categories = current_user.categories
     end
     def dashboard
+        @active_tab ||= "today"
+        @sort_by ||= "due_date"
+        @todaytask = current_user.tasks.where('due_date <= ?', DateTime.now.in_time_zone.end_of_day).order(:completed).order(:"#{@sort_by}")
+        @todaytask_completed = @todaytask.where(completed:true)
+        @todaytask_percent = ((@todaytask_completed.count.to_f / @todaytask.count)*100).round(2)
+    
+
+        @alltask = current_user.tasks.order(:completed).order(:"#{@sort_by}")
+        @alltask_completed = current_user.tasks.where(completed:true)
+        @alltask_percent = ((@alltask_completed.count.to_f / @alltask.count)*100).round(2)
+        
     end
     def new
         @category = Category.new

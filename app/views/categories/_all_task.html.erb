@@ -1,0 +1,57 @@
+
+        <div class="task-container mt-big">
+            <div class="accordion" id="accordionPanelsStayOpenExample">
+                <% alltask.each_with_index do |task,i|%>
+                <div class="accordion-item">
+                    <h2 class="accordion-header d-flex align-items-start " id="panelsStayOpen-heading<%=i%>" >
+                    <div>
+                        <div class="mr-3 btn btn-checkbox btn<%=task.completed ? '' : '-outline' %>-success" data-reflex = 'click->Task#toggleTaskDashboard' data-id="<%=task.id%>" data-active="all" >
+                            <%= link_to '#' do %>
+                            <i class='fas fa-check check'></i>
+                            <%end%> 
+                        </div>
+                    </div>
+                    
+                        
+                    
+                    <button class="accordion-button collapsed"  type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse<%=i%>" aria-expanded="false" aria-controls="panelsStayOpen-collapse<%=i%>" style= "background-color:<%= task.completed ? 'rgba(46, 49, 49, 0.3)' : hex_color_to_rgba(task.category.color, 0.5)%>">
+                        <div>
+                            <div class="task-name-container d-flex">
+                            <p class="task-name" id="task-name" style="text-decoration: <%=task.completed ? 'line-through': 'none' %>">  <%=task.name%> </p>
+                                <p class="task-priority badge bg-<%=task.priority_status_color%>"><%=task.priority_status%></p> 
+                                <p class="task-status badge rounded-pill bg-<%=task.status_color%>"><%=task.status%></p>
+                            </div>
+                        
+                            <p class="task-due_date text-danger"><i class="fas fa-stopwatch "></i> <%=task.due_date.strftime("%A, %d %B %Y")%></p> 
+                        </div> 
+                    </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapse<%=i%>" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-heading<%=i%>" style= "background-color:<%= task.completed ? 'rgba(46, 49, 49, 0.1)' : hex_color_to_rgba(task.category.color, 0.2)%>">
+                    <div class="accordion-body task-body">
+                    <div class="link float-end">
+                        <ul class="dflex flex-row link-items">
+                        <li class="link-item d-inline-block">
+                            <%=link_to category_task_path(task.category,task),{ :class => 'btn btn-task text-success' }   do%>
+                            <i class="fas fa-eye"></i>
+                            <%end%>  
+                        </li>
+                        <li class="link-item d-inline-block">
+                            <%=link_to edit_category_task_path(task.category,task),{ :class => 'btn btn-task text-primary' }   do%>
+                            <i class="fas fa-edit"></i>
+                            <%end%>  
+                        </li>
+                        <li class="link-item d-inline-block">
+                            <%=link_to category_task_path(task.category,task), method: :delete, data: {confirm: "Are you sure?"},class:'btn btn-task text-danger' do%>
+                                <i class="fas fa-trash-alt"></i>
+                            <%end%>
+                        </li>
+                        </ul>
+                    </div>
+                    <p class="text-dark"><%=task.description%></p>
+                    </div>
+                    </div>
+                </div>
+                <%end%>
+                
+            </div>
+        </div>

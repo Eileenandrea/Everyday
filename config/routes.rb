@@ -5,9 +5,11 @@ Rails.application.routes.draw do
   
   resources :users, except: [:new]
   resources :categories do
-    resources :tasks
+    resources :tasks do
+      resources :comments, only: [:new,:create]
+      
+    end
   end
-
 
   get 'dashboard', to: 'categories#dashboard' 
   

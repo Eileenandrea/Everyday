@@ -71,6 +71,7 @@
 }
 
 .btn-timer{
+    
     color: white !important;
     background-color: rgba(255, 255, 255, 0.199) !important;
     &:hover{
@@ -107,7 +108,7 @@
     background-color: rgba(0, 0, 0, 0.568);
     border-radius: 10px;
     margin: auto;
-    margin-top: 3rem;
+    margin-top: 5rem;
     box-sizing: border-box;
     padding: 3% 7% !important;
     
@@ -118,4 +119,59 @@
 #task-links{
     padding-left: 0px !important;
     margin-left: -7.5px !important;
+}
+
+#task-description-container{
+    background-color: rgba(255, 255, 255, 0.199) !important;
+    padding: 5% 7% !important;
+    max-width: inherit !important;    
+    min-height: 87% !important;
+    border-radius: 10px !important;
+}
+
+#form-comment{
+    min-height: 50px;
+    font-size: 1.2rem !important;
+    margin-bottom: 0.5rem !important;
+}
+#btn-comment{
+    font-size: 1rem !important;
+    padding: 3px 1rem;
+    
+}
+.updates{
+    margin-top: 3rem;
+    min-height: 230px;
+    max-height: 230px;
+    background-color: rgba(0, 0, 0, 0.568) !important;
+    padding: 3% 3%;
+    border-radius: 10px;
+    overflow-y: scroll;
+}
+#task-update{
+    background-color: rgba(255, 255, 255, 0.212) !important;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 1% 1.5%;
+    margin-bottom: 1rem;
+}
+
+#style-2::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.3);
+	border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.568) !important;
+}
+
+#style-2::-webkit-scrollbar
+{
+	width: 12px;
+    background-color: rgba(0, 0, 0, 0.568) !important;
+}
+
+#style-2::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #c53f3f;
 }

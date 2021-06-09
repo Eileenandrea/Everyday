@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  #  skip_before_action :verify_authenticity_token
     before_action :set_task, only: [:show,:edit,:update,:destroy]
     before_action :check_id, only: [:show,:edit,:update,:destroy]
     before_action :get_category
@@ -23,6 +24,7 @@ class TasksController < ApplicationController
         end
     end
     def show
+        @comment = Comment.new()
     end
     def edit
     end
@@ -48,8 +50,8 @@ class TasksController < ApplicationController
     def set_task
         @task = Task.find(params[:id])
     end
-    def task_params
-        params.require(:task).permit(:name,:description,:category_id,:due_date,:completed,:completed_at)
+    def task_params   
+        params.require(:task).permit(:name,:description,:category_id,:due_date,:completed,:completed_at,:actual_pomodoro)
     end
     def check_id
         if params[:category_id].to_i != @task.category_id

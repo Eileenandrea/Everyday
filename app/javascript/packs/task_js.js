@@ -10,6 +10,15 @@ const timerBtn = document.querySelector('#btn-time-action')
 let activeTime = document.querySelector('.active-timer')
 let countdowntimer
 timerBtn.addEventListener('click', function () {
+    $.ajaxSetup({
+        headers:
+        { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
+    });
+    $.ajax({
+        url: window.location.href,
+        type: "PATCH",
+        data: {task: {actual_pomodoro : 1}},
+    })
     if (timerBtn.dataset.action == 'start') {
         timerBtn.dataset.action = 'stop'
         timerBtn.innerHTML = 'Stop'

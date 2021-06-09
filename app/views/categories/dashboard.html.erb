@@ -1,1 +1,76 @@
-<h1>Welcom back <%= "#{current_user.firstname}"  %></h1>
+<div class="dashboard-header">
+    <div class="welcome-container <%=@active_tab == "today" ? 'active-sel': ''%>" id="today-task-welcome">
+        <h2 class="heading heading-primary heading-primary-h2 text-dark mb-4">Hi <%="#{current_user.firstname.capitalize}"%>, here are your Tasks for today!</h2>
+        <div class="d-flex">
+            <div class="progress-bar-container progress-bar-container_50 me-auto" >
+                <div class="progress mb-3 ">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: <%= @todaytask_percent%>%" aria-valuenow="<%= @todaytask_percent%>" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                    <p class="text-dark"><small><%= @todaytask_percent%>% complete (<%=@todaytask_completed.count%>/<%=@todaytask.count%> Todo Items)</small></p>
+            </div>
+            <div>
+                <%=link_to categories_path,{ :class => 'btn btn-lg btn-success btn-emboss me-5' }   do%>
+                    <i class="fas fa-plus icon"></i>Task
+                <%end%>    
+            </div>
+        </div>
+
+    </div>
+    <div class="welcome-container <%=@active_tab == "all" ? 'active-sel': ''%>" id="all-task-welcome">
+    <h2 class="heading heading-primary heading-primary-h2 text-dark mb-4">Hi <%="#{current_user.firstname.capitalize}"%>, here are all your Task</h2>
+    <div class="d-flex">
+        <div class="progress-bar-container progress-bar-container_50 me-auto" >
+            <div class="progress mb-3 ">
+                <div class="progress-bar bg-success" role="progressbar" style="width: <%=@alltask_percent%>%" aria-valuenow="<%=@alltask_percent%>" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+                <p class="text-dark"><small><%=@alltask_percent%>% complete (<%= @alltask_completed.count%>/<%= @alltask.count%> Todo Items)</small></p>
+        </div>
+        <div>
+            <%=link_to categories_path,{ :class => 'btn btn-lg btn-success btn-emboss me-5' }   do%>
+                <i class="fas fa-plus icon"></i>Task
+            <%end%>    
+        </div>
+    </div>
+
+</div>
+</div>
+<div class="main-dashboard">
+<div class="dashboard" >
+    <div class="dashboard-head <%=@active_tab == "today" ? 'active-sel': ''%>" id='today-task-head' data-task='today'> 
+    <h1 class="heading heading-primary heading-primary-h2 text-dark" data-reflex = 'click->Task#toggleActive' data-active="today">Today Tasks</h1>
+    </div>
+    <div class="dashboard-tasks <%=@active_tab == "today" ? 'active-sel': ''%>" id="today-task-container">
+    <div class="float-start sort-container d-flex">
+        <p class='sort-text sort-text-dashboard'>Sort By:</p>
+        <select class="form-select form-select_sort" aria-label="Default select example", data-reflex="change->Task#sortDashboard",  data-active="today">
+            <option value= "due_date" selected>Due Date</option>
+            <option value="name">Name</option>
+            <option value="created_at">Date Created</option>
+            <option value="priority">Priority Level</option>
+        </select>
+    </div>
+        <%= render partial: "today_task", locals: {todaytask: @todaytask} %>
+    </div>
+</div>
+<div class="dashboard" id="dashboard-all-task">
+    <div class="dashboard-head <%=@active_tab == "all" ? 'active-sel': ''%>" id='all-task-head' data-task='all'>
+      <h1 class="heading heading-primary heading-primary-h2 text-dark" data-reflex = 'click->Task#toggleActive' data-active="all">All Tasks</h1>
+    </div>
+    <div class="dashboard-tasks <%=@active_tab == "all" ? 'active-sel': ''%>" id="all-task-container">
+       
+    <div class="float-start sort-container d-flex">
+    <p class='sort-text sort-text-dashboard'>Sort By:</p>
+    <select class="form-select form-select_sort" aria-label="Default select example", data-reflex="change->Task#sortDashboard",  data-active="all">
+        <option value= "due_date" selected>Due Date</option>
+        <option value="name">Name</option>
+        <option value="created_at">Date Created</option>
+        <option value="priority">Priority Level</option>
+    </select>
+</div>
+        <%= render partial: "all_task", locals: {alltask: @alltask} %>
+    </div>
+</div>
+</div>
+
+
+<%= javascript_pack_tag 'dashboard_js' %>

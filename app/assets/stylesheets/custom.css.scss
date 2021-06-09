@@ -28,7 +28,7 @@ a::after {
     &-primary{
         font-family: $font-heading ;
         font-weight: 700;
-        color: #eeeeee;
+        color: #ffffff;
         &-h1{
             font-size: 5rem;
         }
@@ -111,9 +111,10 @@ a::after {
 .navbar-nav{
     margin-left: auto;
     margin-right: 0px !important;
-    :not(:last-child){
-        margin-right: 2rem;
-    }
+   
+}
+.navbar-nav>:not(:last-child){
+    margin-right: 2rem;
 }
 .nav-link{
     &-white{
