@@ -12,8 +12,25 @@
               <option value="priority">Priority Level</option>
           </select>
         </div>
+        <div class="float-end category-link-container">
+        <ul class="dflex flex-row link-items">
+          <li class="link-item d-inline-block">
+            <%=link_to edit_category_path(@category),{ :class => 'btn btn-category text-primary' }   do%>
+              <i class="fas fa-edit"></i>
+            <%end%>  
+          </li>
+          <li class="link-item d-inline-block">
+            <%=link_to category_path(@category), method: :delete, data: {confirm: "Are you sure?"},class:'btn btn-category text-danger' do%>
+                <i class="fas fa-trash-alt"></i>
+            <%end%>
+          </li>
+        </ul>
+      </div>
+        
         <div class="category-details">
-          <h1 class="text-center heading heading-primary heading-primary-h1 text-dark mb-4 mt-3"><%=@category.name%></h1>
+          <h1 class="text-center heading heading-primary heading-primary-h1 text-dark mb-4 mt-3">
+              <%=@category.name%>
+          </h1>
           <h5 class="text-center text-dark mb-5 "id="category-description"><%=@category.description%></h5>
         </div>
         

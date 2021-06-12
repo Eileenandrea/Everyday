@@ -149,6 +149,9 @@
 
     }
 }
+.category-link-container{
+    margin-right: 5%;
+}
 .form-select_sort{
     font-size: 1.4rem !important;
 }
@@ -185,6 +188,9 @@
     &:hover{
         background-color: white !important;
     }
+}
+.btn-category{
+    font-size: 1.8rem !important;
 }
 .btn-checkbox{
     width: 40px !important;
