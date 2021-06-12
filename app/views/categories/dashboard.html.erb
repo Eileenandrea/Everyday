@@ -49,6 +49,21 @@
             <option value="priority">Priority Level</option>
         </select>
     </div>
+    <div class="category-legend text-dark">
+         <h3 class="heading heading-primary heading-primary-h3 text-dark text-center" id = "category-legend">Category Legend</h3>
+         <ul class="category-legend-lists d-flex"> 
+         <% @todaytask_legend.each do |legend|%>
+         
+                <li class="category-legend-list d-flex">
+                    <div class="category-legend-color" style="background-color: <%=legend[:color]%>">
+                    </div>
+                    <div class="category-legend-name">
+                        <%=legend[:name]%>
+                    </div>
+                </li>
+            <%end%>
+            </ul>
+    </div>
         <%= render partial: "today_task", locals: {todaytask: @todaytask} %>
     </div>
 </div>
@@ -67,6 +82,21 @@
         <option value="priority">Priority Level</option>
     </select>
 </div>
+    <div class="category-legend text-dark">
+        <h3 class="heading heading-primary heading-primary-h3 text-dark text-center" id = "category-legend">Category Legend</h3>
+        <ul class="category-legend-lists d-flex"> 
+        <% @alltask_legend.each do |legend|%>
+
+            <li class="category-legend-list d-flex">
+                <div class="category-legend-color" style="background-color: <%=legend[:color]%>">
+                </div>
+                <div class="category-legend-name">
+                    <%=legend[:name]%>
+                </div>
+            </li>
+        <%end%>
+        </ul>
+    </div>
         <%= render partial: "all_task", locals: {alltask: @alltask} %>
     </div>
 </div>
