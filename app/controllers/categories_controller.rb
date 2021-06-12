@@ -9,8 +9,8 @@ class CategoriesController < ApplicationController
         @active_tab ||= "today"
         @sort_by ||= "due_date"
         if @sort_by == 'category.name'
-            @todaytask = current_user.tasks.where('due_date <= ?', DateTime.now.in_time_zone.end_of_day).joins(:category).order('categories.name')
-            @alltask = current_user.tasks.order(:completed).joins(:category).order("categories.name")
+            @todaytask = current_user.tasks.where('due_date <= ?', DateTime.now.in_time_zone.end_of_day).order(:completed).joins(:category).order('categories.name')
+            @alltask = current_user.tasks.order(:completed).order(:completed).joins(:category).order("categories.name")
         else
             @todaytask = current_user.tasks.where('due_date <= ?', DateTime.now.in_time_zone.end_of_day).order(:completed).order(:"#{@sort_by}")
             @alltask = current_user.tasks.order(:completed).order(:"#{@sort_by}")
