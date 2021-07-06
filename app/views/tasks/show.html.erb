@@ -2,8 +2,10 @@
   <source src="<%= asset_path('alarm.mp3')%>" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
-
-<div class="row">
+<%=link_to categories_path,{ :class => 'text-light btn-back btn-back-task' }   do%>
+  <i class="fas fa-arrow-circle-left me-3"></i>Back to <%=@task.category.name%>
+<%end%> 
+<div class="row mt-4">
     <div class="col-lg-5 d-flex flex-column">
             <div class="timer-container">
                 <div class="options-container">

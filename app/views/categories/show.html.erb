@@ -1,4 +1,7 @@
 
+<%=link_to categories_path,{ :class => 'text-light btn-back' }   do%>
+  <i class="fas fa-arrow-circle-left me-3"></i>Back to Categories
+<%end%> 
 <div class="clipboard  " style= "background-color:<%= hex_color_to_rgba(@category.color, 0.9)%>">
 <img id="img_clip"  src="<%= asset_path('clipboard-clip.png')%>" alt="">
 
@@ -50,7 +53,7 @@
             </div>
             <div class="task-container">
                     <div class="accordion" id="accordionPanelsStayOpenExample">
-                        <% @category.tasks.order(:completed).order(:"#{@sort_by}").each_with_index do |task,i|%>
+                        <% @category_tasks.each_with_index do |task,i|%>
                           <div class="accordion-item">
                             <h2 class="accordion-header d-flex align-items-start " id="panelsStayOpen-heading<%=i%>" >
                                <div>
@@ -104,6 +107,7 @@
                         
                     </div>
             </div>
+            
             
     </div>
 
