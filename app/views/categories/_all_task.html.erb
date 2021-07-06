@@ -22,7 +22,7 @@
                                 <p class="task-status badge rounded-pill bg-<%=task.status_color%>"><%=task.status%></p>
                             </div>
                         
-                            <p class="task-due_date text-danger"><i class="fas fa-stopwatch "></i> <%=task.due_date.strftime("%A, %d %B %Y")%></p> 
+                            <p class="task-due_date text-danger"><i class="fas fa-stopwatch "></i> <%=task.due_date&.strftime("%A, %d %B %Y")%></p> 
                         </div> 
                     </button>
                     </h2>

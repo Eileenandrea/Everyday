@@ -31,22 +31,22 @@ class Task < ApplicationRecord
     def status
       if completed
         'completed'
-      elsif !completed && due_date.today?
+      elsif !completed && due_date&.today?
         'Due Today'
-      elsif !completed && due_date.to_date.past?
+      elsif !completed && due_date&.to_date&.past?
         'Overdue'
-      elsif !completed && due_date.to_date.future?
+      elsif !completed && (due_date&.to_date&.future? || due_date == nil)
         'Pending'
       end
     end
     def status_color
       if completed
         'success'
-      elsif !completed && due_date.today?
+      elsif !completed && due_date&.today?
         'warning'
-      elsif !completed && due_date.to_date.past?
+      elsif !completed && due_date&.to_date&.past?
         'danger'
-      elsif !completed && due_date.to_date.future?
+      elsif !completed && (due_date&.to_date&.future? || due_date == nil)
         'secondary'
       end
     end

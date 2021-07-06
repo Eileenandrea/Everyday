@@ -31,7 +31,7 @@
                 </div>
  
                 
-                <p>Deadline: <%=@task.due_date.strftime("%A, %d %B %Y")%></p>
+                <p>Deadline: <%=@task.due_date&.strftime("%A, %d %B %Y")%></p>
                 <p>Status: <span class="task-status text-<%=@task.status_color%>"><%=@task.status%></span></p>
                 <ul class="dflex flex-row link-items" id="task-links">
                 <li class="link-item d-inline-block">
