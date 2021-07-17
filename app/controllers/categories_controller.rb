@@ -54,6 +54,7 @@ class CategoriesController < ApplicationController
     end
     def show
         @sort_by ||= "due_date"
+        @category_tasks =  @category.tasks.order(:completed).order(:"#{@sort_by}")
     end
     def edit
     end
